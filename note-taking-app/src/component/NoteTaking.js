@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/NoteTaking.css";
+import "../images/trash.png";
 class NoteTaking extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,9 @@ class NoteTaking extends React.Component {
     };
     this.addNote = this.addNote.bind(this);
   }
-
+  // deleteSingleNote = (val,index)=>{
+  //   console.log('inside delete');
+  // }
   buttonActive = () => {
     if (this.theTitle !== "") {
       this.setState({ buttonActive: false });
@@ -36,8 +39,10 @@ class NoteTaking extends React.Component {
     });
     this.note.value = "";
     this.theTitle.value = "";
-    event.preventDefault();
+    
   };
+
+  
   render() {
     return (
       <div>
@@ -46,8 +51,10 @@ class NoteTaking extends React.Component {
             <p>
               {this.state.items.map((val, index) => (
                 <li key={index}>
-                  {val.title}- {val.note}                
-                </li>               
+                  {val.title}- {val.note}                  
+                  {/* <i onClick={this.deleteSingleNote(val,index)} className="fa fa-trash"></i>                   */}
+                </li> 
+                
               ))}
             </p>
           </section>
